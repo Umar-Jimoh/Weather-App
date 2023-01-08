@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
+  }
+}
+
+body {
+  @apply bg-[#EDDCFB] text-[#3e3e3e];
+}
+
+.container {
+  @apply px-[1.8rem] py-[1.2rem]
+        tab-md:px-[2.4rem] 
+            tab-lg:grid tab-lg:grid-cols-10 tab-lg:px-[3rem] 
+            tab-lg:gap-4
+            max-w-none;
+}
+
+/* note: Navbar */
+.navbar {
+  @apply text-[#3e3e3e] text-[2rem] flex justify-between 
+            tab-lg:col-start-2 tab-lg:col-end-4;
+}
+
+.search-icon {
+  @apply cursor-pointer w-14 h-8;
+}
+
+/* note: navbar END */
+
+/* note: Clear Btn */
+.clear__btn {
+  @apply hidden absolute right-[.8rem] w-16 h-16;
+}
+
+.clear__icon {
+  @apply text-[#3e3e3e] absolute top-3 right-2 w-20 h-10 cursor-pointer
+
+}
+
+.checkbox-default {
+  @apply fixed hidden;
+}
+
+/* note: Clear Btn END */
+
+/* note: Search */
+
+.search {
+  @apply relative flex items-stretch w-full mb-4;
+}
+
+.search__input {
+  @apply text-xl relative flex-auto min-w-0 block w-full px-3.5 py-3.5 font-normal text-gray-700 bg-[#F7EAFF]
+  bg-clip-padding border-none rounded transition ease-in-out m-0 
+  focus:text-gray-700 focus:outline-none
+  ;
+}
+
+.search__btn {
+  @apply inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase 
+  rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none 
+  focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out items-center
+}
+
+.message {
+  @apply w-full text-base text-center text-red-500;
+}
+
+/* note: Search END */
+
+
+/* note: Main */
+.main {
+  @apply relative tab-lg:col-start-2 tab-lg:col-end-[-2] tab-lg:col-span-2
+          desktop:col-start-3 desktop:col-end-[-3];
+}
+
+.city {
+  @apply w-full text-center text-[2.4rem] capitalize font-medium mt-[1.6rem]
+    tab-sm:text-5xl
+    tab-md:text-6xl;
+}
+
+.city span {
+  @apply ml-4;
+}
+
+.date {
+  @apply font-light text-[1.4rem] mt-[.8rem]
+        tab-sm:text-[1.6rem];
+}
+
+.weather {
+  @apply flex justify-between items-center mt-[2.4rem] mx-[1rem]
+        tab-md:mx-[2.4rem];
+}
+
+.weather--icon {
+  @apply w-36
+        tab-sm:w-40 
+            tab-md:w-48;
+}
+
+.weather--temp {
+  @apply text-center font-normal text-3xl py-[-14rem] h-full relative
+        tab-sm:text-4xl;
+}
+
+.weather--temp-degree {
+  @apply font-semibold flex flex-col  h-[6rem] text-7xl mb-[-.4rem]
+        tab-md:text-8xl;
+}
+.weather--temp-degree span {
+  @apply font-normal text-4xl absolute  top-[-.8rem] right-[-1rem];
+}
+
+/* note: weather details  */
+.weather-details {
+  @apply w-full font-normal text-[1.4rem] mt-[1.6rem]
+        tab-sm:text-[1.6rem];
+}
+
+.details {
+  @apply mb-[.8rem] bg-[#F7EAFF] rounded-3xl py-4 px-8 flex items-center
+        tab-sm:mb-[1.6rem];
+}
+
+.details .icon {
+  @apply bg-white;
+}
+
+.icon {
+  @apply w-16 p-2.5 rounded-3xl;
+}
+
+.unit {
+  @apply flex justify-between w-full mx-[.8rem];
+}
+/* note: weather details END */
+
+
+/* note:  Error Message */
+
+.error-message {
+  @apply text-2xl text-center mx-auto w-full tab-lg:w-3/5 pt-7
+}
+
+/* note:  Error Message End */
+
+/* note: Not Found */
+.not-found {
+  @apply flex flex-col items-center relative 
+}
+
+.not-found__icon {
+  @apply text-[6rem] m-[1.6rem] 
+}
+
+/* note: Not Found */
+
+/* note: Network Error */
+
+
+.network-error__button {
+  @apply inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded shadow-md 
+  active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out
+  focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 
+  hover:bg-blue-700 hover:shadow-lg 
+}
+
+/* note: Network Error End */
+
+/* note: Main END */
