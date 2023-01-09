@@ -24,9 +24,15 @@ export const WeatherProvider = ({ children }) => {
 
 
   const fetchIpAddress = async () => {
-    const res = await axios.get(`${IPGEOLOCATION_URL}/ipgeo?apiKey=${IPGEOLOCATION_API}`)
-    const {city} = res.data
-    fetchLocation(city)
+    try {
+      const res = await axios.get(`${IPGEOLOCATION_URL}/ipgeo?apiKey=${IPGEOLOCATION_API}`)
+      const {city} = res.data
+      fetchLocation(city)
+
+    } catch(error) {
+      console.log(error);
+    }
+      
   }
 
   // fetch Location Data
