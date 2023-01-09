@@ -1,17 +1,7 @@
-import {useContext} from 'react'
-import WeatherContext from '../../Contexts/WeatherContext'
+import TryAgainBtn from '../shared/TryAgainBtn'
 
 
 function NetworkError() {
-
-  const { location, fetchLocation, setIsLoading } =
-    useContext(WeatherContext)
-
-  const handleRetry = () => {
-    setIsLoading(true)
-    fetchLocation(location)
-  }
-  
   
   return (
     <div className='error-message'>
@@ -19,13 +9,7 @@ function NetworkError() {
         The connection to the network is impossible. Please check the status of
         your connection or try again.
       </p>
-      <button
-        type='button'
-        className='network-error__button'
-        onClick={() => handleRetry()}
-      >
-        Try again
-      </button>
+      <TryAgainBtn />
     </div>
   )
 }

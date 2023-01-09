@@ -7,6 +7,7 @@ import NotFound from './NotFound'
 import NetworkError from './NetworkError'
 import IpGeolocationError from './IPGeolocationError'
 
+
 function WeatherDetails() {
   const { isLoading, weatherData, notFound, networkError, ipGeolocationError } =
     useContext(WeatherContext)
