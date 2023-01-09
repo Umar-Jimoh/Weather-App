@@ -5,14 +5,11 @@ import WeatherStatsList from './WeatherStatsList'
 import Spinner from '../shared/Spinner'
 import NotFound from './NotFound'
 import NetworkError from './NetworkError'
+import IpGeolocationError from './IPGeolocationError'
 
 function WeatherDetails() {
-  const {
-    isLoading,
-    weatherData,
-    notFound,
-    networkError,
-  } = useContext(WeatherContext)
+  const { isLoading, weatherData, notFound, networkError, ipGeolocationError } =
+    useContext(WeatherContext)
 
   const temp = Math.trunc(weatherData.main?.temp - 273.15)
 
@@ -25,7 +22,7 @@ function WeatherDetails() {
   const weatherDate = new Date(countryDt).toDateString().slice(0, 10)
   
 
-  return isLoading ? (<Spinner />) : networkError ? (<NetworkError />) : notFound ? ( <NotFound />) : (
+  return isLoading ? (<Spinner />) : networkError ? (<NetworkError />) : ipGeolocationError ? (<IpGeolocationError />) : notFound ? ( <NotFound />) : (
     <div>
       <h1 className='city'>
         {weatherData.name},<span>{weatherData.sys.country}</span>

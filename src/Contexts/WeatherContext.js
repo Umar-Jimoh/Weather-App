@@ -9,6 +9,7 @@ export const WeatherProvider = ({ children }) => {
   const [weatherData, setWeatherData] = useState([])
   const [notFound, setNotFound] = useState(false)
   const [networkError, setNetworkError] = useState(false)
+  const [ipGeolocationError, setIpGeolocationError] = useState(false)
 
   useEffect(() => {
     fetchIpAddress()
@@ -28,9 +29,9 @@ export const WeatherProvider = ({ children }) => {
       const res = await axios.get(`${IPGEOLOCATION_URL}/ipgeo?apiKey=${IPGEOLOCATION_API}`)
       const {city} = res.data
       fetchLocation(city)
-
+      
     } catch(error) {
-      console.log(error);
+      setIpGeolocationError(true)
     }
       
   }
@@ -67,6 +68,8 @@ export const WeatherProvider = ({ children }) => {
 
       setIsLoading(false)
     }
+
+    setIpGeolocationError(false)
   }
 
   return (
@@ -77,9 +80,12 @@ export const WeatherProvider = ({ children }) => {
         location,
         notFound,
         networkError,
+        ipGeolocationError,
         setLocation,
         setIsLoading,
         fetchLocation,
+        fetchIpAddress,
+        setIpGeolocationError,
       }}
     >
       {children}
